@@ -1,13 +1,17 @@
-use_frameworks!
-
 platform :ios, '8.0'
 
 target 'LYVideosPlayer_Example' do
   pod 'LYVideosPlayer', :path => '../'
+  pod 'AFNetworking'
+  pod 'SDWebImage'
+  pod 'Masonry'
+  pod 'TXLiteAVSDK_Player'  # 腾讯云播放器-独立播放器
+  pod 'MJRefresh'
+  pod 'JXCategoryView'
 
-  target 'LYVideosPlayer_Tests' do
-    inherit! :search_paths
-
-    pod 'FBSnapshotTestCase'
-  end
+#  target 'LYVideosPlayer_Tests' do
+#    inherit! :search_paths
+#
+#   pod 'FBSnapshotTestCase'
+#  end
 end
