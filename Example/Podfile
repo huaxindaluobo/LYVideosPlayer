@@ -7,7 +7,7 @@ target 'LYVideosPlayer_Example' do
   pod 'Masonry'
   pod 'TXLiteAVSDK_Player'  # 腾讯云播放器-独立播放器
   pod 'MJRefresh'
-  pod 'JXCategoryView'
+#  pod 'JXCategoryView'
 
 #  target 'LYVideosPlayer_Tests' do
 #    inherit! :search_paths

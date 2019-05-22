@@ -9,22 +9,31 @@
 #import "LYPlayerManager.h"
 #import <AFNetworking/AFHTTPSessionManager.h>
 #import <SDWebImage/UIImageView+WebCache.h>
-//#import <>
-//#import <TXLiteAVSDK_Player/TXLiveBase.h>
-//#import <TXLiteAVSDK_Player/TXVodPlayer.h>
-//#import <TXLiteAVSDK_Player/TXVodPlayListener.h>
+#import <AVKit/AVKit.h>
+#import <LYVideosPlayer/LYPlayerView.h>
 @interface LYPlayerManager ()
+
+@property (nonatomic,strong) AVPlayer *player;
+
+@property (nonatomic,strong) AVPlayerItem *playItem;
+
+@property (nonatomic,strong) AVPlayerLayer *playLayer;
+
+@property (nonatomic,strong) LYPlayerView  * playView;
 
 
 @end
 
 @implementation LYPlayerManager
 
-- (instancetype)init
+- (instancetype)initWithVideoUrl:(NSString *)url
 {
     self = [super init];
     if (self) {
-        
+        self.playItem = [[AVPlayerItem alloc]initWithURL:[NSURL URLWithString:url]];
+        self.player = [AVPlayer playerWithPlayerItem:self.playItem];
+        self.playLayer = [AVPlayerLayer playerLayerWithPlayer:self.player];
+        [self.playView.layer addSublayer:self.playLayer];
     }
     return self;
 }

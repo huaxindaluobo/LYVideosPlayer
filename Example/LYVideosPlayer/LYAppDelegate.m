@@ -8,6 +8,7 @@
 
 #import "LYAppDelegate.h"
 #import "LYMainViewcontroller.h"
+#import "LYViewController.h"
 
 @implementation LYAppDelegate
 
@@ -15,7 +16,7 @@
 {
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = [[UINavigationController alloc]initWithRootViewController:[[LYMainViewcontroller alloc] init]];
+    self.window.rootViewController = [[UINavigationController alloc]initWithRootViewController:[[LYViewController alloc] init]];
     [self.window makeKeyAndVisible];
     return YES;
 }

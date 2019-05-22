@@ -7,8 +7,11 @@
 //
 
 #import "LYViewController.h"
+#import <LYVideosPlayer/LYPlayer.h>
 
 @interface LYViewController ()
+
+@property (nonatomic,strong) LYPlayer *player;
 
 @end
 
@@ -17,13 +20,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+}
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    self.player = [[LYPlayer alloc]initWithVideoUrl:@"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" VideoView:self.view];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    
 }
 
 @end
