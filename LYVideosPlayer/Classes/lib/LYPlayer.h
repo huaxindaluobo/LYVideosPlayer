@@ -10,9 +10,35 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^UpdateVideoSlideBlock)(CGFloat value);
+
 @interface LYPlayer : NSObject
 
+@property (nonatomic,copy) UpdateVideoSlideBlock block;
+
 @property (nonatomic,assign,readonly) BOOL  isPlaying;
+
+
+/**
+ 是否是自动播放(默认为no)
+ */
+@property (nonatomic,assign) BOOL  isAutoPlay;
+
+/**
+ 快进时间
+ */
+@property (nonatomic,assign) CGFloat speedTime;
+
+/**
+ 视频总时间
+ */
+@property (nonatomic,assign) CGFloat videoTime;
+
+
+/**
+ 当前时间
+ */
+@property (nonatomic,assign) CGFloat currentTime;
 
 /**
  初始化视频播放器
@@ -23,8 +49,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (instancetype)initWithVideoUrl:(NSString *)url VideoView:(UIView *)videoView;
 
+/**
+ 更改屏幕方向
+
+ @param currentOrigin 当前屏幕方向
+ @param videoView 展示的view
+ */
+-(void)videoOriginChange:(UIDeviceOrientation)currentOrigin VideoView:(UIView *)videoView;
+
 //切换视频
-- (void)updatePlayerWithURL:(NSURL *)url 
+- (void)updatePlayerWithURL:(NSURL *)url;
 
 /**
  停止播放并移除播放视图
